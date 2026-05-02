@@ -1,19 +1,26 @@
 # syntax=docker/dockerfile:1.7
 # Next.js 14 standalone build — multi-stage for tiny runtime image
+# Build: docker build -t demo-general .
+# Run:   docker run -p 3000:3000 demo-general
 
+# ─── deps stage ────────────────────────────────────────────────────────
 FROM node:20-alpine AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 COPY package.json package-lock.json* ./
 RUN npm ci --no-audit --no-fund
 
+# ─── builder stage ─────────────────────────────────────────────────────
 FROM node:20-alpine AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+# Pastikan public/ ada — beberapa app tidak punya folder ini, runner COPY butuh exist
+RUN mkdir -p public
 ENV NEXT_TELEMETRY_DISABLED=1
 RUN npm run build
 
+# ─── runner stage ──────────────────────────────────────────────────────
 FROM node:20-alpine AS runner
 WORKDIR /app
 ENV NODE_ENV=production
