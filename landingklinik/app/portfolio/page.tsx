@@ -6,9 +6,9 @@ import { caseStudies } from "@/content/case-studies";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Portfolio",
+  title: "Portfolio Landing Page Klinik Gigi",
   description:
-    "Daftar case study landing page klinik gigi yang dikerjakan landingklinik.id, lengkap dengan tantangan, solusi, dan hasil terukur.",
+    "Case study landing page klinik gigi: tantangan klinik, pendekatan desain, integrasi WhatsApp booking, dan hasil terukur 3 minggu setelah launch.",
   path: "/portfolio",
 });
 

@@ -9,7 +9,7 @@ import { Container } from "@/components/Container";
 import { PortraitPlaceholder } from "@/components/PortraitPlaceholder";
 import { ThumbnailPlaceholder } from "@/components/ThumbnailPlaceholder";
 import { caseStudies, getCaseStudy } from "@/content/case-studies";
-import { articleSchema, buildMetadata } from "@/lib/seo";
+import { articleSchema, breadcrumbSchema, buildMetadata } from "@/lib/seo";
 import { waLink, waMessages } from "@/lib/whatsapp";
 
 type Params = { slug: string };
@@ -27,19 +27,23 @@ export async function generateMetadata({
   if (!c) {
     return buildMetadata({
       title: "Case study tidak ditemukan",
-      description: "Halaman tidak ditemukan.",
+      description: "Halaman case study yang Anda cari tidak ditemukan.",
       path: `/case-study/${params.slug}`,
+      noIndex: true,
     });
   }
-  const description = `Case study ${c.name} di ${c.location}. ${c.oneLineResult}.`.slice(
-    0,
-    160
-  );
+  const description =
+    `${c.categoryLabel} di ${c.location}. ${c.oneLineResult}. Case study landing page klinik gigi oleh landingklinik.id.`.slice(
+      0,
+      160
+    );
+  const publishedTime = `${c.year}-01-01`;
   return buildMetadata({
-    title: `${c.name}`,
+    title: `${c.name} — Case Study Landing Page Klinik Gigi`,
     description,
     path: `/case-study/${c.slug}`,
     type: "article",
+    publishedTime,
   });
 }
 
@@ -294,11 +298,25 @@ export default function CaseStudyDetailPage({ params }: { params: Params }) {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             articleSchema({
-              title: c.name,
-              description: c.oneLineResult,
+              title: `${c.name} — Case Study Landing Page Klinik Gigi`,
+              description: `${c.categoryLabel} di ${c.location}. ${c.oneLineResult}.`,
               path: `/case-study/${c.slug}`,
               datePublished: `${c.year}-01-01`,
             })
+          ),
+        }}
+      />
+      <Script
+        id={`breadcrumb-schema-${c.slug}`}
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbSchema([
+              { name: "Beranda", path: "/" },
+              { name: "Portfolio", path: "/portfolio" },
+              { name: c.name, path: `/case-study/${c.slug}` },
+            ])
           ),
         }}
       />

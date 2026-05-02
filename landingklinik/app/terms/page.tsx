@@ -5,8 +5,8 @@ import { buildMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Terms of Service",
-  description: `Ketentuan layanan ${siteConfig.name}: scope project, pembayaran, revisi, garansi, dan penghentian project.`,
+  title: "Syarat Layanan",
+  description: `Syarat layanan ${siteConfig.name}: scope project landing page klinik gigi, pembayaran, revisi, garansi bug fix, dan penghentian kerja sama.`,
   path: "/terms",
 });
 

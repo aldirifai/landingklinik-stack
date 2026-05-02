@@ -5,8 +5,8 @@ import { buildMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Privacy Policy",
-  description: `Kebijakan privasi ${siteConfig.name}: bagaimana data pengunjung dan klien dikumpulkan, digunakan, dan dilindungi.`,
+  title: "Kebijakan Privasi",
+  description: `Kebijakan privasi ${siteConfig.name}: cara data pengunjung dan klien dikumpulkan, digunakan, disimpan, dan dilindungi sesuai standar layanan kami.`,
   path: "/privacy",
 });
 

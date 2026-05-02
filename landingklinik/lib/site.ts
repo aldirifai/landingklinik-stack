@@ -2,9 +2,9 @@ export const siteConfig = {
   name: "landingklinik.id",
   domain: "landingklinik.id",
   url: "https://landingklinik.id",
-  tagline: "Landing page khusus klinik gigi",
+  tagline: "Jasa pembuatan website klinik gigi yang fokus ke booking pasien",
   description:
-    "Spesialis landing page dan sistem booking untuk klinik gigi di Indonesia. Project 3 minggu, harga transparan, hasil terukur.",
+    "Jasa pembuatan landing page klinik gigi di Indonesia: terintegrasi WhatsApp booking, Google Business Profile, dan dashboard inquiry untuk resepsionis. Selesai 3 minggu, harga mulai Rp 5,5 juta sekali bayar.",
   email: "hello@landingklinik.id",
   whatsapp: {
     raw: "6285856981160",

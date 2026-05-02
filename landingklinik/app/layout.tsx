@@ -6,8 +6,7 @@ import "./globals.css";
 
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
-import { buildMetadata } from "@/lib/seo";
-import { organizationSchema } from "@/lib/seo";
+import { buildMetadata, organizationSchema, websiteSchema } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
 const inter = Inter({
@@ -29,6 +28,21 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     path: "/",
   }),
+  applicationName: siteConfig.name,
+  generator: "Next.js",
+  referrer: "origin-when-cross-origin",
+  keywords: [
+    "jasa landing page klinik gigi",
+    "landing page klinik gigi",
+    "website klinik gigi",
+    "jasa pembuatan website klinik gigi",
+    "booking klinik gigi WhatsApp",
+    "landing page klinik gigi Surabaya",
+    "buat website klinik gigi 3 minggu",
+    "harga landing page klinik gigi",
+    "klinik gigi Surabaya",
+    "Google Business Profile klinik gigi",
+  ],
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -36,9 +50,15 @@ export const metadata: Metadata = {
     ],
     apple: "/apple-touch-icon.png",
   },
-  authors: [{ name: siteConfig.founder.name }],
+  authors: [{ name: siteConfig.founder.name, url: siteConfig.url }],
   creator: siteConfig.founder.name,
+  publisher: siteConfig.name,
   category: "Web development",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
 };
 
 export const viewport: Viewport = {
@@ -70,6 +90,14 @@ export default function RootLayout({
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(organizationSchema()),
+          }}
+        />
+        <Script
+          id="website-schema"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteSchema()),
           }}
         />
       </body>
