@@ -19,6 +19,7 @@ export function About() {
         <div className="mx-auto mt-10 grid max-w-5xl grid-cols-1 items-start gap-8 sm:mt-12 sm:gap-10 md:grid-cols-[1fr_1.4fr] md:gap-12">
           <Reveal className="mx-auto w-full max-w-xs md:max-w-none">
             <PortraitPlaceholder
+              name="Aldi Founder Surabaya"
               initials="AL"
               alt={`Foto ${siteConfig.founder.name}, ${siteConfig.founder.role}`}
             />

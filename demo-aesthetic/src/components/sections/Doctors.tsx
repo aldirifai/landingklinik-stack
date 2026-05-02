@@ -1,15 +1,6 @@
 import { Card } from "@/components/ui/Card";
 import { doctors } from "@/lib/content";
-
-function initials(name: string) {
-  const cleaned = name.replace(/^drg\.\s*/i, "");
-  return cleaned
-    .split(" ")
-    .slice(0, 2)
-    .map((p) => p[0])
-    .join("")
-    .toUpperCase();
-}
+import { doctorAvatars } from "@/lib/images";
 
 export function Doctors() {
   return (
@@ -26,12 +17,16 @@ export function Doctors() {
           {doctors.map((doc) => (
             <Card key={doc.name} className="p-0 overflow-hidden">
               <div className="grid gap-6 p-7 sm:grid-cols-[140px,1fr] sm:p-9">
-                <div className="aspect-square w-full overflow-hidden rounded-md bg-gradient-to-br from-navy-700 to-navy-900 sm:w-[140px]">
-                  <div className="grid h-full place-items-center">
-                    <span className="font-display text-3xl text-gold-400">
-                      {initials(doc.name)}
-                    </span>
-                  </div>
+                <div className="aspect-square w-full overflow-hidden rounded-md bg-navy-900 ring-1 ring-gold-500/30 sm:w-[140px]">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={doctorAvatars[doc.name]}
+                    alt={`Avatar ${doc.name}`}
+                    className="h-full w-full"
+                    loading="lazy"
+                    width={140}
+                    height={140}
+                  />
                 </div>
                 <div>
                   <p className="font-display text-2xl text-navy-900">{doc.name}</p>

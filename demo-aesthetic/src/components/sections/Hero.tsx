@@ -1,6 +1,7 @@
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { LinkButton } from "@/components/ui/Button";
 import { clinic, heroCopy } from "@/lib/content";
+import { photos } from "@/lib/images";
 
 export function Hero() {
   return (
@@ -8,13 +9,21 @@ export function Hero() {
       id="top"
       className="relative isolate flex min-h-[560px] flex-col justify-end overflow-hidden bg-navy-900 text-white sm:min-h-[680px]"
     >
-      <div
+      {/* Hero background photo */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={photos.heroBg}
+        alt=""
         aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_20%,rgba(30,58,138,0.6),transparent_50%),radial-gradient(circle_at_80%_70%,rgba(201,169,97,0.18),transparent_55%)]"
+        className="absolute inset-0 -z-20 h-full w-full object-cover opacity-40"
       />
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(10,15,30,0.3)_0%,rgba(10,15,30,0.85)_100%)]"
+        className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_20%,rgba(30,58,138,0.65),transparent_50%),radial-gradient(circle_at_80%_70%,rgba(201,169,97,0.2),transparent_55%)]"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(10,15,30,0.55)_0%,rgba(10,15,30,0.92)_100%)]"
       />
       <div
         aria-hidden="true"

@@ -2,34 +2,42 @@ import { cn } from "@/lib/utils";
 
 type Props = {
   initials?: string;
+  /** Nama lengkap untuk seed avatar (lebih konsisten daripada initials) */
+  name?: string;
   className?: string;
   alt?: string;
 };
 
+/**
+ * Portrait avatar — pakai DiceBear notionists-neutral SVG (deterministik per seed).
+ * Lebih profesional daripada inisial polos, dan tidak terlihat seperti stock photo
+ * generic. Cocok untuk testimonial hypothetical.
+ */
 export function PortraitPlaceholder({
   initials = "AL",
+  name,
   className,
   alt = "Foto profil",
 }: Props) {
+  const seed = name ?? initials;
+  const avatarUrl = `https://api.dicebear.com/9.x/notionists-neutral/svg?seed=${encodeURIComponent(seed)}&backgroundColor=dbeafe,bfdbfe,c7d2fe,fde68a&backgroundType=gradientLinear`;
+
   return (
     <div
-      role="img"
-      aria-label={alt}
       className={cn(
-        "relative flex aspect-square w-full items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br from-primary/15 via-accent/15 to-secondary",
+        "relative aspect-square w-full overflow-hidden rounded-xl bg-secondary ring-1 ring-border",
         className
       )}
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_25%,hsl(var(--primary)/0.18),transparent_55%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_85%,hsl(var(--accent)/0.18),transparent_55%)]" />
-      <div className="relative flex h-32 w-32 items-center justify-center rounded-full bg-white/70 backdrop-blur-sm shadow-sm">
-        <span className="font-display text-3xl font-semibold text-primary">
-          {initials}
-        </span>
-      </div>
-      <span className="absolute bottom-3 right-3 rounded-md bg-white/80 px-2 py-1 text-[10px] font-medium text-muted-foreground">
-        Foto placeholder
-      </span>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={avatarUrl}
+        alt={alt}
+        className="h-full w-full"
+        loading="lazy"
+        width={128}
+        height={128}
+      />
     </div>
   );
 }

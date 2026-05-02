@@ -1,15 +1,6 @@
 import { Card } from "@/components/ui/Card";
 import { doctors } from "@/lib/content";
-
-function initials(name: string) {
-  const cleaned = name.replace(/^drg\.\s*/i, "");
-  return cleaned
-    .split(" ")
-    .slice(0, 2)
-    .map((p) => p[0])
-    .join("")
-    .toUpperCase();
-}
+import { doctorAvatars } from "@/lib/images";
 
 export function Doctors() {
   return (
@@ -30,8 +21,16 @@ export function Doctors() {
           {doctors.map((doc) => (
             <Card key={doc.name} className="flex flex-col">
               <div className="flex items-center gap-4">
-                <div className="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-brand-100 font-display text-lg font-bold text-brand-700">
-                  {initials(doc.name)}
+                <div className="h-14 w-14 shrink-0 overflow-hidden rounded-full bg-brand-100 ring-2 ring-brand-100">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={doctorAvatars[doc.name]}
+                    alt={`Avatar ${doc.name}`}
+                    className="h-full w-full"
+                    loading="lazy"
+                    width={56}
+                    height={56}
+                  />
                 </div>
                 <div className="min-w-0">
                   <p className="truncate font-display font-bold text-ink">{doc.name}</p>

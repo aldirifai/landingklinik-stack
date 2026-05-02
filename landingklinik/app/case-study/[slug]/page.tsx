@@ -138,7 +138,8 @@ export default function CaseStudyDetailPage({ params }: { params: Params }) {
 
               <ThumbnailPlaceholder
                 gradient={c.thumbnailGradient}
-                label={c.name}
+                label={c.categoryLabel}
+                demoUrl={c.demoUrl}
                 alt={`Mockup landing page ${c.name}`}
                 className="aspect-[4/3] lg:aspect-[5/4]"
               />
@@ -245,6 +246,7 @@ export default function CaseStudyDetailPage({ params }: { params: Params }) {
                   <figcaption className="mt-6 flex items-center gap-4">
                     <div className="h-12 w-12 shrink-0">
                       <PortraitPlaceholder
+                        name={c.testimonial.name}
                         initials={c.testimonial.name.charAt(0)}
                         alt={`Foto ${c.testimonial.name}`}
                         className="h-12 w-12"

@@ -2,11 +2,12 @@ import Link from "next/link";
 import { Clock, ArrowRight } from "lucide-react";
 import { Card } from "@/components/ui/Card";
 import { articles } from "@/lib/content";
+import { articleImages } from "@/lib/images";
 
-const palette = [
-  "from-coral-100 to-coral-200 text-coral-700",
-  "from-mint-100 to-mint-200 text-mint-700",
-  "from-sun-100 to-sun-50 text-sun-500",
+const tints = [
+  "ring-coral-100 bg-coral-50",
+  "ring-mint-100 bg-mint-50",
+  "ring-sun-100 bg-sun-50",
 ];
 
 export function Articles() {
@@ -29,9 +30,18 @@ export function Articles() {
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {articles.map((article, i) => (
             <Card key={article.slug} className="flex flex-col p-0 overflow-hidden">
-              <div className={`grid h-32 place-items-center bg-gradient-to-br ${palette[i % palette.length]}`}>
-                <span className="font-display text-4xl font-extrabold opacity-80">
-                  {String(i + 1).padStart(2, "0")}
+              <div className={`relative h-40 overflow-hidden ring-2 ${tints[i % tints.length]}`}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={articleImages[article.slug]}
+                  alt={article.title}
+                  className="h-full w-full object-cover"
+                  loading="lazy"
+                  width={600}
+                  height={300}
+                />
+                <span className="absolute right-3 top-3 rounded-full bg-white/95 px-2.5 py-1 font-display text-sm font-extrabold text-coral-600 shadow-soft">
+                  #{String(i + 1).padStart(2, "0")}
                 </span>
               </div>
               <div className="flex flex-1 flex-col p-6">

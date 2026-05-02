@@ -2,6 +2,7 @@
 
 import { Bell, Menu, Search } from "lucide-react";
 import { userName, userRole } from "@/lib/data";
+import { userAvatar } from "@/lib/images";
 import { useOpenSidebar } from "./SidebarContext";
 
 export function Topbar({ title }: { title: string }) {
@@ -51,8 +52,16 @@ export function Topbar({ title }: { title: string }) {
         </button>
 
         <div className="flex items-center gap-3 rounded-md sm:border sm:border-gray-200 sm:px-3 sm:py-1.5">
-          <div className="grid h-8 w-8 sm:h-7 sm:w-7 place-items-center rounded-full bg-brand-500/10 text-xs font-bold text-brand-600">
-            AP
+          <div className="h-8 w-8 sm:h-7 sm:w-7 overflow-hidden rounded-full bg-brand-500/10 ring-1 ring-brand-500/20">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={userAvatar}
+              alt={`Avatar ${userName}`}
+              className="h-full w-full"
+              loading="lazy"
+              width={32}
+              height={32}
+            />
           </div>
           <div className="hidden text-xs leading-tight sm:block">
             <p className="font-medium text-gray-900">{userName}</p>

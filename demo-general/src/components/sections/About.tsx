@@ -1,4 +1,5 @@
 import { aboutCopy, clinic } from "@/lib/content";
+import { photos } from "@/lib/images";
 
 export function About() {
   return (
@@ -30,20 +31,16 @@ export function About() {
           </div>
 
           <div className="relative">
-            <div className="aspect-[4/5] w-full overflow-hidden rounded-lg bg-gradient-to-br from-brand-100 to-brand-200">
-              <div className="grid h-full place-items-center text-center">
-                <div className="px-6">
-                  <div className="mx-auto h-16 w-16 rounded-full bg-white/70 grid place-items-center text-brand-700 font-display text-2xl font-bold">
-                    DS
-                  </div>
-                  <p className="mt-4 font-display text-lg font-semibold text-brand-900">
-                    {clinic.name}
-                  </p>
-                  <p className="mt-2 text-xs text-brand-700">
-                    Foto interior klinik — placeholder
-                  </p>
-                </div>
-              </div>
+            <div className="aspect-[4/5] w-full overflow-hidden rounded-lg bg-brand-100">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={photos.clinicInterior}
+                alt={`Interior klinik ${clinic.name}`}
+                className="h-full w-full object-cover"
+                loading="lazy"
+                width={1000}
+                height={1250}
+              />
             </div>
             <div className="absolute -bottom-4 right-2 rounded-lg bg-white p-3 shadow-card sm:-right-4 sm:p-4">
               <p className="text-xs uppercase tracking-wider text-slate-500">Berdiri sejak</p>

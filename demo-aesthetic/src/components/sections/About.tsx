@@ -1,4 +1,5 @@
 import { aboutCopy, clinic } from "@/lib/content";
+import { photos } from "@/lib/images";
 
 export function About() {
   return (
@@ -7,20 +8,16 @@ export function About() {
         <div className="grid gap-10 lg:grid-cols-[1fr,1.1fr] lg:items-center lg:gap-16">
           <div className="order-2 lg:order-1">
             <div className="relative mx-auto max-w-sm lg:max-w-none">
-              <div className="aspect-[4/5] w-full overflow-hidden rounded-md bg-gradient-to-br from-navy-700 to-navy-900">
-                <div className="grid h-full place-items-center text-center">
-                  <div>
-                    <div className="mx-auto h-20 w-20 rounded-full border border-gold-500/40 grid place-items-center font-display text-2xl text-gold-400">
-                      SA
-                    </div>
-                    <p className="mt-4 font-display text-xl text-white/90">
-                      Interior klinik
-                    </p>
-                    <p className="mt-1 text-xs text-white/50">
-                      Foto placeholder — ganti dengan foto klinik asli
-                    </p>
-                  </div>
-                </div>
+              <div className="aspect-[4/5] w-full overflow-hidden rounded-md bg-navy-900">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={photos.clinicInterior}
+                  alt={`Interior klinik ${clinic.name}`}
+                  className="h-full w-full object-cover opacity-95"
+                  loading="lazy"
+                  width={1000}
+                  height={1250}
+                />
               </div>
               <div className="absolute -bottom-6 -right-6 hidden rounded-md border border-gold-500/30 bg-white px-6 py-5 shadow-refined sm:block">
                 <p className="text-[10px] uppercase tracking-widest text-navy-400">

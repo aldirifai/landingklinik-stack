@@ -17,7 +17,8 @@ export function CaseStudyCard({ caseStudy }: Props) {
       >
         <ThumbnailPlaceholder
           gradient={caseStudy.thumbnailGradient}
-          label={caseStudy.name}
+          label={caseStudy.categoryLabel}
+          demoUrl={caseStudy.demoUrl}
           alt={`Mockup case study ${caseStudy.name}`}
         />
       </Link>
