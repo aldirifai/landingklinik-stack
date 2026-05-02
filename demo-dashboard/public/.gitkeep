@@ -1,0 +1,2 @@
+# Dashboard tidak butuh aset publik (favicon ditarik dari Next defaults).
+# File ini sengaja ada supaya folder ke-track git → Docker COPY /app/public bekerja.
