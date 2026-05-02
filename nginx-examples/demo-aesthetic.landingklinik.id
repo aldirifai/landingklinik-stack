@@ -1,0 +1,31 @@
+# /etc/nginx/sites-available/demo-aesthetic.landingklinik.id
+# Container Docker: demo-aesthetic (127.0.0.1:47052)
+#
+# Setelah enable & reload nginx, run:
+#   sudo certbot --nginx -d demo-aesthetic.landingklinik.id
+
+server {
+	listen 80;
+	listen [::]:80;
+	server_name demo-aesthetic.landingklinik.id;
+
+	access_log /var/log/nginx/demo-aesthetic.landingklinik.id.access.log;
+	error_log  /var/log/nginx/demo-aesthetic.landingklinik.id.error.log;
+
+	location / {
+		proxy_pass http://127.0.0.1:47052;
+		proxy_http_version 1.1;
+		proxy_set_header Upgrade           $http_upgrade;
+		proxy_set_header Connection        "upgrade";
+		proxy_set_header Host              $host;
+		proxy_set_header X-Real-IP         $remote_addr;
+		proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
+		proxy_set_header X-Forwarded-Proto $scheme;
+		proxy_set_header X-Forwarded-Host  $host;
+		proxy_cache_bypass $http_upgrade;
+
+		proxy_connect_timeout 30s;
+		proxy_send_timeout    60s;
+		proxy_read_timeout    60s;
+	}
+}

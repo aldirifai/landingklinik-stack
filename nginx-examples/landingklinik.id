@@ -1,0 +1,43 @@
+# /etc/nginx/sites-available/landingklinik.id
+# Portfolio apex + www → apex redirect
+# Container Docker: landingklinik (127.0.0.1:47050)
+#
+# Setelah enable & reload nginx, run:
+#   sudo certbot --nginx -d landingklinik.id -d www.landingklinik.id
+# Certbot akan inject SSL block + HTTP→HTTPS redirect otomatis.
+
+# www → apex redirect
+server {
+	listen 80;
+	listen [::]:80;
+	server_name www.landingklinik.id;
+
+	return 301 https://landingklinik.id$request_uri;
+}
+
+# apex
+server {
+	listen 80;
+	listen [::]:80;
+	server_name landingklinik.id;
+
+	access_log /var/log/nginx/landingklinik.id.access.log;
+	error_log  /var/log/nginx/landingklinik.id.error.log;
+
+	location / {
+		proxy_pass http://127.0.0.1:47050;
+		proxy_http_version 1.1;
+		proxy_set_header Upgrade           $http_upgrade;
+		proxy_set_header Connection        "upgrade";
+		proxy_set_header Host              $host;
+		proxy_set_header X-Real-IP         $remote_addr;
+		proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
+		proxy_set_header X-Forwarded-Proto $scheme;
+		proxy_set_header X-Forwarded-Host  $host;
+		proxy_cache_bypass $http_upgrade;
+
+		proxy_connect_timeout 30s;
+		proxy_send_timeout    60s;
+		proxy_read_timeout    60s;
+	}
+}

@@ -1,0 +1,108 @@
+# All-in-one stack for landingklinik.id (portfolio + 4 demos) on a single VPS.
+# Run from this directory:  docker compose up -d --build
+#
+# This compose ONLY runs the 5 Next.js apps. TLS + reverse proxy dihandle
+# oleh Nginx + Certbot native di host (lihat nginx-examples/ dan DEPLOY.md).
+#
+# Port mapping (semua bind ke 127.0.0.1 — tidak terexpose publik).
+# Pakai range 47050-47054 — quiet range, jauh dari 3000s/8000s/9000s yang
+# umum dipakai web/dev tools. Kalau perlu ganti, edit di sini DAN di
+# nginx-examples/*.conf (port harus match).
+#   landingklinik   → 127.0.0.1:47050
+#   demo-general    → 127.0.0.1:47051
+#   demo-aesthetic  → 127.0.0.1:47052
+#   demo-pediatric  → 127.0.0.1:47053
+#   demo-dashboard  → 127.0.0.1:47054
+#
+# Hanya nginx host yang bisa proxy ke port-port ini. Untuk akses dari luar,
+# tambah server block di nginx + jalankan certbot --nginx (lihat DEPLOY.md).
+
+services:
+  landingklinik:
+    build:
+      context: ./landingklinik
+      dockerfile: Dockerfile
+    container_name: landingklinik
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+    ports:
+      - "127.0.0.1:47050:3000"
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+
+  demo-general:
+    build:
+      context: ./demo-general
+      dockerfile: Dockerfile
+    container_name: demo-general
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_SITE_URL=https://demo-general.landingklinik.id
+    ports:
+      - "127.0.0.1:47051:3000"
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+
+  demo-aesthetic:
+    build:
+      context: ./demo-aesthetic
+      dockerfile: Dockerfile
+    container_name: demo-aesthetic
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_SITE_URL=https://demo-aesthetic.landingklinik.id
+    ports:
+      - "127.0.0.1:47052:3000"
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+
+  demo-pediatric:
+    build:
+      context: ./demo-pediatric
+      dockerfile: Dockerfile
+    container_name: demo-pediatric
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_SITE_URL=https://demo-pediatric.landingklinik.id
+    ports:
+      - "127.0.0.1:47053:3000"
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+
+  demo-dashboard:
+    build:
+      context: ./demo-dashboard
+      dockerfile: Dockerfile
+    container_name: demo-dashboard
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_SITE_URL=https://demo-dashboard.landingklinik.id
+    ports:
+      - "127.0.0.1:47054:3000"
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
