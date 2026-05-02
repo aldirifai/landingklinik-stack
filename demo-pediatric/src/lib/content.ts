@@ -16,7 +16,7 @@ export const clinic: Clinic = {
   yearFounded: 2021,
   address: "Jl. Raya Darmo Permai III No. 88, Surabaya Barat",
   phone: "+62 31-8123456",
-  whatsapp: "6289678386070",
+  whatsapp: "6285856981160",
   hours: {
     weekday: "Senin - Jumat: 13:00 - 20:00",
     weekend: "Sabtu - Minggu: 09:00 - 17:00",

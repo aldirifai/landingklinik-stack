@@ -13,7 +13,7 @@ export const clinic: Clinic = {
   yearFounded: 2018,
   address: "Jl. Manyar Kertoarjo No. 45, Surabaya",
   phone: "+62 31-5012345",
-  whatsapp: "6289678386070",
+  whatsapp: "6285856981160",
   hours: {
     weekday: "Senin-Sabtu: 09:00 - 20:00",
     weekend: "Minggu: Tutup",

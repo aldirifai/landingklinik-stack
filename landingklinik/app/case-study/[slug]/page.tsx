@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Script from "next/script";
-import { ArrowLeft, ArrowRight, Calendar, Clock, MapPin, Quote, Tag } from "lucide-react";
+import { ArrowLeft, ArrowRight, Calendar, Clock, ExternalLink, MapPin, Quote, Tag } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/Container";
@@ -77,6 +77,24 @@ export default function CaseStudyDetailPage({ params }: { params: Params }) {
                 <p className="mt-4 text-balance text-base leading-relaxed text-muted-foreground sm:text-lg">
                   {c.oneLineResult}
                 </p>
+
+                {c.demoUrl ? (
+                  <div className="mt-6">
+                    <Button asChild size="lg">
+                      <a
+                        href={c.demoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Lihat demo live
+                        <ExternalLink className="h-4 w-4" />
+                      </a>
+                    </Button>
+                    <p className="mt-2 text-xs text-muted-foreground">
+                      Demo interaktif — semua data fiktif, untuk lihat format hasil.
+                    </p>
+                  </div>
+                ) : null}
 
                 <dl className="mt-8 grid grid-cols-2 gap-y-4 sm:grid-cols-4">
                   <div>

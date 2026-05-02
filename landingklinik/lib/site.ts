@@ -7,8 +7,8 @@ export const siteConfig = {
     "Spesialis landing page dan sistem booking untuk klinik gigi di Indonesia. Project 3 minggu, harga transparan, hasil terukur.",
   email: "hello@landingklinik.id",
   whatsapp: {
-    raw: "6289678386070",
-    display: "+62 896-7838-6070",
+    raw: "6285856981160",
+    display: "+62 858-5698-1160",
   },
   location: "Surabaya, Indonesia",
   founder: {

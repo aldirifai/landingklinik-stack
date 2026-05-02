@@ -79,7 +79,7 @@ export const siteConfig = {
   name: "landingklinik.id",
   url: "https://landingklinik.id",
   email: "hello@landingklinik.id",
-  whatsapp: { raw: "6289678386070", display: "+62 896-7838-6070" },
+  whatsapp: { raw: "6285856981160", display: "+62 858-5698-1160" },
   social: {
     instagram: "https://instagram.com/<handle>",
     linkedin: "https://linkedin.com/in/<handle>",

@@ -18,7 +18,7 @@ export const clinic: Clinic = {
   address:
     "Lenmarc Mall Lt. 2 Unit 15, Jl. Mayjen Yono Suwoyo, Surabaya",
   phone: "+62 31-7345678",
-  whatsapp: "6289678386070",
+  whatsapp: "6285856981160",
   hours: {
     weekday: "Senin - Sabtu: 10:00 - 21:00",
     weekend: "Minggu: By appointment only",
