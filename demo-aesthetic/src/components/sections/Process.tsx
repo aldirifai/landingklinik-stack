@@ -15,16 +15,16 @@ export function Process() {
           </p>
         </div>
 
-        <ol className="mt-14 grid gap-px overflow-hidden rounded-md border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
+        <ol className="mt-10 grid gap-px overflow-hidden rounded-md border border-white/10 bg-white/10 sm:mt-14 sm:grid-cols-2 lg:grid-cols-4">
           {processSteps.map((step) => (
             <li
               key={step.number}
-              className="flex flex-col gap-3 bg-navy-900 p-7"
+              className="flex flex-col gap-3 bg-navy-900 p-6 sm:p-7"
             >
-              <span className="font-display text-3xl text-gold-400">
+              <span className="font-display text-2xl text-gold-400 sm:text-3xl">
                 {step.number}
               </span>
-              <h3 className="font-display text-xl text-white">{step.title}</h3>
+              <h3 className="font-display text-lg text-white sm:text-xl">{step.title}</h3>
               <span className="text-[10px] uppercase tracking-wider text-white/50">
                 {step.duration}
               </span>

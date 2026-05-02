@@ -12,14 +12,14 @@ export function Showcase() {
           </h2>
         </div>
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2">
+        <div className="mt-10 grid gap-5 sm:mt-14 sm:gap-6 sm:grid-cols-2">
           {showcase.map((item) => (
             <article
               key={item.id}
-              className="group relative overflow-hidden rounded-md border border-navy-100 bg-white p-8 transition hover:border-gold-500/40 hover:shadow-refined"
+              className="group relative overflow-hidden rounded-md border border-navy-100 bg-white p-6 transition hover:border-gold-500/40 hover:shadow-refined sm:p-8"
             >
               <div className="flex items-start justify-between gap-4">
-                <h3 className="font-display text-2xl text-navy-900">
+                <h3 className="font-display text-xl text-navy-900 sm:text-2xl">
                   {item.name}
                 </h3>
                 <ArrowUpRight className="h-5 w-5 text-navy-300 transition group-hover:text-gold-600" />

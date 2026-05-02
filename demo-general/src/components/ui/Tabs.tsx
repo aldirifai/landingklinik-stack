@@ -24,7 +24,7 @@ export function Tabs({ tabs }: { tabs: Tab[] }) {
               aria-selected={isActive}
               onClick={() => setActive(tab.id)}
               className={cn(
-                "whitespace-nowrap rounded-md px-4 py-2 text-sm font-medium transition",
+                "inline-flex h-10 shrink-0 items-center whitespace-nowrap rounded-md px-4 text-sm font-medium transition",
                 isActive
                   ? "bg-white text-brand-600 shadow-card"
                   : "text-slate-600 hover:text-ink"

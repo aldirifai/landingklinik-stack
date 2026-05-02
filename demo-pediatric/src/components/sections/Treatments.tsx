@@ -10,9 +10,9 @@ export function Treatments() {
         {cat.items.map((item) => (
           <li
             key={item.name}
-            className="flex flex-col gap-1 px-5 py-4 sm:flex-row sm:items-center sm:justify-between"
+            className="flex flex-col gap-1 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-5"
           >
-            <div>
+            <div className="min-w-0">
               <p className="text-sm font-bold text-ink sm:text-base">
                 {item.name}
               </p>
@@ -20,7 +20,7 @@ export function Treatments() {
                 <p className="text-xs text-slate-500">{item.note}</p>
               )}
             </div>
-            <span className="text-sm font-extrabold text-coral-600 sm:text-base">
+            <span className="shrink-0 text-sm font-extrabold text-coral-600 sm:text-base">
               {item.price}
             </span>
           </li>

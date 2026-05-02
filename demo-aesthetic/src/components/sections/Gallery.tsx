@@ -17,7 +17,7 @@ export function Gallery() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid gap-5 sm:mt-12 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {gallery.map((item, i) => (
             <figure
               key={item.caption}

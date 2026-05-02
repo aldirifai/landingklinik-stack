@@ -41,18 +41,18 @@ export function Booking() {
   return (
     <section id="booking" className="section bg-gradient-to-b from-canvas to-brand-50/40">
       <div className="container-page">
-        <div className="grid gap-12 lg:grid-cols-[1fr,1.1fr] lg:gap-16">
+        <div className="grid gap-10 sm:gap-12 lg:grid-cols-[1fr,1.1fr] lg:gap-16">
           <div>
             <span className="eyebrow">Booking</span>
-            <h2 className="mt-3 text-3xl font-bold text-ink sm:text-4xl">
+            <h2 className="mt-3 text-2xl font-bold text-ink sm:text-3xl lg:text-4xl">
               Siap untuk checkup?
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-slate-600">
+            <p className="mt-4 text-sm leading-relaxed text-slate-600 sm:text-base">
               Isi form di samping, kami terima booking-nya langsung lewat WhatsApp.
               Tim resepsionis akan konfirmasi slot dalam 1 jam jam operasional.
             </p>
 
-            <ul className="mt-8 space-y-4 rounded-lg border border-slate-200 bg-white p-6">
+            <ul className="mt-6 space-y-4 rounded-lg border border-slate-200 bg-white p-5 sm:mt-8 sm:p-6">
               <ContactRow icon={<MapPin className="h-5 w-5 text-brand-600" />} label="Alamat" value={clinic.address} />
               <ContactRow icon={<Clock className="h-5 w-5 text-brand-600" />} label="Jam operasional" value={`${clinic.hours.weekday} • ${clinic.hours.weekend}`} />
               <ContactRow icon={<Phone className="h-5 w-5 text-brand-600" />} label="Telepon" value={clinic.phone} />
@@ -62,7 +62,7 @@ export function Booking() {
 
           <form
             onSubmit={onSubmit}
-            className="rounded-lg border border-slate-200 bg-white p-6 shadow-card sm:p-8"
+            className="rounded-lg border border-slate-200 bg-white p-5 shadow-card sm:p-6 lg:p-8"
             noValidate
           >
             <div className="grid gap-4 sm:grid-cols-2">
@@ -182,10 +182,10 @@ export function Booking() {
 function ContactRow({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
   return (
     <li className="flex items-start gap-3">
-      <span className="mt-0.5">{icon}</span>
-      <div>
+      <span className="mt-0.5 shrink-0">{icon}</span>
+      <div className="min-w-0">
         <p className="text-xs uppercase tracking-wider text-slate-400">{label}</p>
-        <p className="text-sm text-ink">{value}</p>
+        <p className="break-words text-sm text-ink">{value}</p>
       </div>
     </li>
   );

@@ -5,10 +5,10 @@ export function FAQ() {
   return (
     <section className="section">
       <div className="container-page">
-        <div className="grid gap-10 lg:grid-cols-[1fr,1.5fr] lg:gap-16">
+        <div className="grid gap-8 sm:gap-10 lg:grid-cols-[1fr,1.5fr] lg:gap-16">
           <div>
             <span className="eyebrow">FAQ</span>
-            <h2 className="mt-3 text-3xl font-bold text-ink sm:text-4xl">
+            <h2 className="mt-3 text-2xl font-bold text-ink sm:text-3xl lg:text-4xl">
               Pertanyaan umum
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-slate-600">

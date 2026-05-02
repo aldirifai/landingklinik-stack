@@ -68,8 +68,8 @@ export default function InboxPage() {
       <Topbar title="Inbox Inquiry" />
       <div className="flex flex-1 overflow-hidden">
         <main className="flex-1 overflow-auto">
-          <div className="border-b border-gray-200 bg-white px-6 py-4">
-            <div className="flex flex-wrap items-center justify-between gap-4">
+          <div className="border-b border-gray-200 bg-white px-4 sm:px-6 py-4">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center sm:justify-between gap-3 sm:gap-4">
               <div className="flex items-center gap-3">
                 <h2 className="text-sm font-medium text-gray-900">
                   {filtered.length} inquiry
@@ -91,34 +91,68 @@ export default function InboxPage() {
                 />
               </div>
             </div>
-            <div className="mt-4 flex flex-wrap gap-1.5">
-              {filters.map((f) => (
-                <button
-                  key={f.id}
-                  type="button"
-                  onClick={() => setFilter(f.id)}
-                  className={cn(
-                    "inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-medium transition",
-                    filter === f.id
-                      ? "bg-brand-500 text-white"
-                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                  )}
-                >
-                  {f.label}
-                  <span
+            <div className="mt-4 -mx-4 sm:mx-0 overflow-x-auto">
+              <div className="flex gap-1.5 px-4 sm:px-0 sm:flex-wrap whitespace-nowrap pb-1 sm:pb-0">
+                {filters.map((f) => (
+                  <button
+                    key={f.id}
+                    type="button"
+                    onClick={() => setFilter(f.id)}
                     className={cn(
-                      "rounded-full px-1.5 text-[10px]",
-                      filter === f.id ? "bg-white/20" : "bg-white text-gray-500"
+                      "inline-flex shrink-0 items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-medium transition",
+                      filter === f.id
+                        ? "bg-brand-500 text-white"
+                        : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                     )}
                   >
-                    {counts[f.id]}
-                  </span>
-                </button>
-              ))}
+                    {f.label}
+                    <span
+                      className={cn(
+                        "rounded-full px-1.5 text-[10px]",
+                        filter === f.id ? "bg-white/20" : "bg-white text-gray-500"
+                      )}
+                    >
+                      {counts[f.id]}
+                    </span>
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
 
-          <div className="overflow-x-auto">
+          {/* Mobile card list */}
+          <div className="md:hidden divide-y divide-gray-100">
+            {filtered.length === 0 && (
+              <p className="px-4 py-16 text-center text-sm text-gray-500">
+                Tidak ada inquiry yang cocok dengan filter.
+              </p>
+            )}
+            {filtered.map((it) => (
+              <button
+                key={it.id}
+                type="button"
+                onClick={() => setSelectedId(it.id)}
+                className={cn(
+                  "w-full text-left bg-white px-4 py-3 hover:bg-canvas transition",
+                  selectedId === it.id && "bg-brand-50/60"
+                )}
+              >
+                <div className="flex items-start justify-between gap-2">
+                  <StatusBadge status={it.status} />
+                  <span className="text-[11px] text-gray-500">{relativeTime(it.createdAt)}</span>
+                </div>
+                <p className="mt-2 text-sm font-medium text-gray-900 truncate">{it.patientName}</p>
+                <p className="text-xs text-gray-700 truncate">{it.treatment}</p>
+                <div className="mt-2 flex items-center justify-between gap-2">
+                  <span className="text-xs text-gray-500 truncate">{it.phone}</span>
+                  <SourceBadge source={it.source} />
+                </div>
+              </button>
+            ))}
+          </div>
+
+          {/* Desktop table */}
+          <div className="hidden md:block overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-gray-200 bg-canvas text-left text-xs uppercase tracking-wider text-gray-500">
@@ -170,7 +204,7 @@ export default function InboxPage() {
             </table>
           </div>
 
-          <p className="px-6 py-4 text-xs text-gray-400">
+          <p className="px-4 sm:px-6 py-4 text-xs text-gray-400">
             Dashboard demo untuk landingklinik.id — semua data fiktif. Action update status hanya tersimpan di state lokal.
           </p>
         </main>

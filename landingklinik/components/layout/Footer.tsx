@@ -9,8 +9,8 @@ import { waLink } from "@/lib/whatsapp";
 export function Footer() {
   return (
     <footer className="border-t border-border bg-secondary/40">
-      <Container className="py-14">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-4">
+      <Container className="py-12 sm:py-14">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-10 md:grid-cols-4">
           <div className="space-y-3">
             <Logo />
             <p className="max-w-[15rem] text-sm leading-relaxed text-muted-foreground">

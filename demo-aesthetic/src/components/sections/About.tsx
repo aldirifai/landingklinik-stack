@@ -4,9 +4,9 @@ export function About() {
   return (
     <section id="about" className="section bg-white">
       <div className="container-page">
-        <div className="grid gap-16 lg:grid-cols-[1fr,1.1fr] lg:items-center">
+        <div className="grid gap-10 lg:grid-cols-[1fr,1.1fr] lg:items-center lg:gap-16">
           <div className="order-2 lg:order-1">
-            <div className="relative">
+            <div className="relative mx-auto max-w-sm lg:max-w-none">
               <div className="aspect-[4/5] w-full overflow-hidden rounded-md bg-gradient-to-br from-navy-700 to-navy-900">
                 <div className="grid h-full place-items-center text-center">
                   <div>

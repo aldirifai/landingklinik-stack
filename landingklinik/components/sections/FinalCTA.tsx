@@ -10,7 +10,7 @@ export function FinalCTA() {
   return (
     <section
       id="cta"
-      className="relative overflow-hidden bg-primary py-20 text-primary-foreground sm:py-24"
+      className="relative overflow-hidden bg-primary py-14 text-primary-foreground sm:py-20 lg:py-24"
     >
       <div
         aria-hidden="true"
@@ -28,8 +28,8 @@ export function FinalCTA() {
           <p className="mx-auto mt-5 max-w-xl text-balance text-base leading-relaxed text-white/85 sm:text-lg">
             {finalCtaContent.subhead}
           </p>
-          <div className="mt-9 flex justify-center">
-            <Button asChild variant="invert" size="xl">
+          <div className="mt-8 flex justify-center sm:mt-9">
+            <Button asChild variant="invert" size="xl" className="w-full sm:w-auto">
               <a
                 href={waLink(waMessages.defaultInquiry)}
                 target="_blank"

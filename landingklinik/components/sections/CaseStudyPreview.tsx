@@ -14,7 +14,7 @@ export function CaseStudyPreview() {
   return (
     <section
       id="case-studies"
-      className="border-b border-border bg-background py-20 sm:py-24"
+      className="border-b border-border bg-background py-14 sm:py-20 lg:py-24"
     >
       <Container>
         <SectionHeading
@@ -23,7 +23,7 @@ export function CaseStudyPreview() {
           subtitle={caseStudyPreviewContent.subheading}
         />
 
-        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 gap-5 sm:mt-12 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
           {previewItems.map((c, idx) => (
             <Reveal key={c.slug} delay={idx * 80}>
               <CaseStudyCard caseStudy={c} />

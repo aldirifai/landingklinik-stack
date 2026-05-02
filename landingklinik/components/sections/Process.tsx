@@ -5,15 +5,15 @@ import { processContent } from "@/content/main";
 
 export function Process() {
   return (
-    <section id="proses" className="border-b border-border bg-background py-20 sm:py-24">
+    <section id="proses" className="border-b border-border bg-background py-14 sm:py-20 lg:py-24">
       <Container>
         <SectionHeading eyebrow="Cara kerja" title={processContent.heading} />
-        <div className="relative mt-14">
+        <div className="relative mt-10 sm:mt-14">
           <div
             aria-hidden="true"
             className="absolute left-5 top-2 hidden h-[calc(100%-1rem)] w-px bg-border md:left-0 md:top-7 md:h-px md:w-full"
           />
-          <ol className="relative grid grid-cols-1 gap-10 md:grid-cols-4 md:gap-6">
+          <ol className="relative grid grid-cols-1 gap-8 sm:gap-10 md:grid-cols-4 md:gap-6">
             {processContent.steps.map((step, idx) => {
               const Icon = step.icon;
               return (

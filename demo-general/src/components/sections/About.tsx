@@ -4,24 +4,24 @@ export function About() {
   return (
     <section id="about" className="section">
       <div className="container-page">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 lg:items-center">
+        <div className="grid gap-10 sm:gap-12 lg:grid-cols-2 lg:gap-16 lg:items-center">
           <div>
             <span className="eyebrow">Tentang Klinik</span>
-            <h2 className="mt-3 text-3xl font-bold text-ink sm:text-4xl">
+            <h2 className="mt-3 text-2xl font-bold text-ink sm:text-3xl lg:text-4xl">
               Klinik gigi yang fokus pada pengalaman pasien
             </h2>
-            <div className="mt-5 space-y-4 text-base leading-relaxed text-slate-600">
+            <div className="mt-5 space-y-4 text-sm leading-relaxed text-slate-600 sm:text-base">
               {aboutCopy.paragraphs.map((p) => (
                 <p key={p.slice(0, 30)}>{p}</p>
               ))}
             </div>
-            <dl className="mt-8 grid grid-cols-3 gap-4 border-t border-slate-200 pt-8">
+            <dl className="mt-8 grid grid-cols-3 gap-3 border-t border-slate-200 pt-6 sm:gap-4 sm:pt-8">
               {aboutCopy.stats.map((stat) => (
                 <div key={stat.label}>
-                  <dt className="text-xs uppercase tracking-wider text-slate-500">
+                  <dt className="text-[10px] uppercase tracking-wider text-slate-500 sm:text-xs">
                     {stat.label}
                   </dt>
-                  <dd className="mt-1 font-display text-2xl font-bold text-brand-600 sm:text-3xl">
+                  <dd className="mt-1 font-display text-xl font-bold text-brand-600 sm:text-2xl lg:text-3xl">
                     {stat.value}
                   </dd>
                 </div>
@@ -45,9 +45,9 @@ export function About() {
                 </div>
               </div>
             </div>
-            <div className="absolute -bottom-4 -right-4 rounded-lg bg-white p-4 shadow-card">
+            <div className="absolute -bottom-4 right-2 rounded-lg bg-white p-3 shadow-card sm:-right-4 sm:p-4">
               <p className="text-xs uppercase tracking-wider text-slate-500">Berdiri sejak</p>
-              <p className="font-display text-xl font-bold text-ink">{clinic.yearFounded}</p>
+              <p className="font-display text-lg font-bold text-ink sm:text-xl">{clinic.yearFounded}</p>
             </div>
           </div>
         </div>

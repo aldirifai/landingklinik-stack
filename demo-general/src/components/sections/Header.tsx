@@ -40,12 +40,12 @@ export function Header() {
           : "bg-transparent"
       )}
     >
-      <div className="container-page flex h-16 items-center justify-between">
-        <Link href="#top" className="flex items-center gap-2">
-          <span className="grid h-8 w-8 place-items-center rounded-lg bg-brand-500 text-white font-bold">
+      <div className="container-page flex h-16 items-center justify-between gap-3">
+        <Link href="#top" className="flex min-w-0 items-center gap-2">
+          <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-brand-500 text-white font-bold">
             D
           </span>
-          <span className="font-display text-base font-bold tracking-tight text-ink">
+          <span className="truncate font-display text-sm font-bold tracking-tight text-ink sm:text-base">
             {clinic.name}
           </span>
         </Link>
@@ -71,7 +71,7 @@ export function Header() {
 
         <button
           type="button"
-          className="md:hidden"
+          className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-md text-ink md:hidden"
           aria-label="Toggle menu"
           onClick={() => setOpen((v) => !v)}
         >
@@ -80,7 +80,7 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="border-t border-slate-200 bg-white md:hidden">
+        <div className="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-slate-200 bg-white md:hidden">
           <nav className="container-page flex flex-col gap-1 py-3">
             {navLinks.map((link) => (
               <a
@@ -96,7 +96,7 @@ export function Header() {
               href={waLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-2 inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-brand-500 px-4 text-sm font-medium text-white"
+              className="mt-2 inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-brand-500 px-4 text-sm font-medium text-white"
             >
               <MessageCircle className="h-4 w-4" />
               Booking via WA

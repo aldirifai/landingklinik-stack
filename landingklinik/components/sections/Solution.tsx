@@ -8,7 +8,7 @@ export function Solution() {
   return (
     <section
       id="solusi"
-      className="border-b border-border bg-secondary/40 py-20 sm:py-24"
+      className="border-b border-border bg-secondary/40 py-14 sm:py-20 lg:py-24"
     >
       <Container>
         <SectionHeading
@@ -16,10 +16,10 @@ export function Solution() {
           title={solutionContent.heading}
           subtitle="Bukan template generic. Setiap section dirancang untuk satu tujuan: bikin pasien lebih mudah booking."
         />
-        <Reveal className="mt-12">
+        <Reveal className="mt-10 sm:mt-12">
           <SolutionMockup />
         </Reveal>
-        <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2">
+        <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-12 sm:gap-5 md:grid-cols-2">
           {solutionContent.features.map((feature, idx) => {
             const Icon = feature.icon;
             return (

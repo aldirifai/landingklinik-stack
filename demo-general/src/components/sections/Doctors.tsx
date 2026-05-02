@@ -17,24 +17,24 @@ export function Doctors() {
       <div className="container-page">
         <div className="max-w-2xl">
           <span className="eyebrow">Tim Dokter</span>
-          <h2 className="mt-3 text-3xl font-bold text-ink sm:text-4xl">
+          <h2 className="mt-3 text-2xl font-bold text-ink sm:text-3xl lg:text-4xl">
             Tim dokter kami
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-slate-600">
+          <p className="mt-4 text-sm leading-relaxed text-slate-600 sm:text-base">
             Tiga dokter gigi umum yang aktif praktik harian, dengan fokus klinis
             yang saling melengkapi.
           </p>
         </div>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
+        <div className="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
           {doctors.map((doc) => (
             <Card key={doc.name} className="flex flex-col">
               <div className="flex items-center gap-4">
                 <div className="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-brand-100 font-display text-lg font-bold text-brand-700">
                   {initials(doc.name)}
                 </div>
-                <div>
-                  <p className="font-display font-bold text-ink">{doc.name}</p>
+                <div className="min-w-0">
+                  <p className="truncate font-display font-bold text-ink">{doc.name}</p>
                   <p className="text-xs text-slate-500">{doc.specialty}</p>
                 </div>
               </div>

@@ -20,10 +20,10 @@ const buttonVariants = cva(
           "bg-white text-primary hover:bg-white/90 shadow-sm font-semibold",
       },
       size: {
-        default: "h-10 px-5 py-2",
-        sm: "h-9 px-4",
+        default: "h-11 px-5 py-2",
+        sm: "h-10 px-4",
         lg: "h-12 px-6 text-base",
-        xl: "h-14 px-8 text-base",
+        xl: "h-12 px-6 text-base sm:h-14 sm:px-8",
       },
     },
     defaultVariants: {

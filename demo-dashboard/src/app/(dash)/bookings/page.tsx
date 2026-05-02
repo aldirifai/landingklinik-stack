@@ -44,8 +44,8 @@ export default function BookingsPage() {
     <>
       <Topbar title="Booking" />
       <main className="flex-1 overflow-auto">
-        <div className="border-b border-gray-200 bg-white px-6 py-4">
-          <div className="flex flex-wrap items-center justify-between gap-4">
+        <div className="border-b border-gray-200 bg-white px-4 sm:px-6 py-4">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center sm:justify-between gap-3 sm:gap-4">
             <div>
               <h2 className="text-base font-semibold text-gray-900">
                 Booking hari ini
@@ -54,8 +54,8 @@ export default function BookingsPage() {
                 {today} • {items.length} booking{items.length !== 1 ? "" : ""}
               </p>
             </div>
-            <div className="flex items-center gap-2">
-              <Select value={doctor} onChange={(e) => setDoctor(e.target.value)} className="w-48">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+              <Select value={doctor} onChange={(e) => setDoctor(e.target.value)} className="w-full sm:w-48">
                 <option value="All">Semua dokter</option>
                 {doctors.map((d) => (
                   <option key={d} value={d}>{d}</option>
@@ -63,26 +63,28 @@ export default function BookingsPage() {
               </Select>
             </div>
           </div>
-          <div className="mt-4 flex gap-1.5">
-            {tabs.map((t) => (
-              <button
-                key={t.id}
-                type="button"
-                onClick={() => setTab(t.id)}
-                className={cn(
-                  "rounded-md px-3 py-1.5 text-xs font-medium transition",
-                  tab === t.id
-                    ? "bg-brand-500 text-white"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                )}
-              >
-                {t.label}
-              </button>
-            ))}
+          <div className="mt-4 -mx-4 sm:mx-0 overflow-x-auto">
+            <div className="flex gap-1.5 px-4 sm:px-0 whitespace-nowrap pb-1 sm:pb-0">
+              {tabs.map((t) => (
+                <button
+                  key={t.id}
+                  type="button"
+                  onClick={() => setTab(t.id)}
+                  className={cn(
+                    "shrink-0 rounded-md px-3 py-1.5 text-xs font-medium transition",
+                    tab === t.id
+                      ? "bg-brand-500 text-white"
+                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                  )}
+                >
+                  {t.label}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
-        <div className="mx-auto max-w-4xl px-6 py-8">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 py-6 sm:py-8">
           {tab !== "today" ? (
             <div className="grid place-items-center rounded-md border border-dashed border-gray-300 bg-white p-16 text-center">
               <p className="text-sm font-medium text-gray-700">
@@ -94,7 +96,7 @@ export default function BookingsPage() {
             </div>
           ) : (
             <ol className="relative">
-              <div aria-hidden="true" className="absolute left-16 top-0 h-full w-px bg-gray-200" />
+              <div aria-hidden="true" className="absolute left-12 sm:left-16 top-0 h-full w-px bg-gray-200" />
               {HOURS.map((hour) => {
                 const hourLabel = `${hour.toString().padStart(2, "0")}:00`;
                 const slotItems = items.filter((b) => {
@@ -102,14 +104,14 @@ export default function BookingsPage() {
                   return startHour === hour;
                 });
                 return (
-                  <li key={hour} className="relative flex gap-4 py-3">
-                    <div className="w-12 shrink-0 pt-1.5 text-right text-xs font-medium text-gray-500">
+                  <li key={hour} className="relative flex gap-2 sm:gap-4 py-3">
+                    <div className="w-10 sm:w-12 shrink-0 pt-1.5 text-right text-xs font-medium text-gray-500">
                       {hourLabel}
                     </div>
-                    <div className="relative ml-4 flex-1 space-y-2">
+                    <div className="relative ml-3 sm:ml-4 flex-1 min-w-0 space-y-2">
                       <span
                         aria-hidden="true"
-                        className="absolute -left-[18px] top-3 h-2 w-2 rounded-full border-2 border-white bg-gray-300"
+                        className="absolute -left-[14px] sm:-left-[18px] top-3 h-2 w-2 rounded-full border-2 border-white bg-gray-300"
                       />
                       {slotItems.length === 0 && (
                         <p className="text-xs italic text-gray-300">—</p>
@@ -118,13 +120,13 @@ export default function BookingsPage() {
                         <div
                           key={b.id}
                           className={cn(
-                            "rounded-md border-l-4 border-y border-r border-gray-200 bg-white p-4 shadow-sm",
+                            "rounded-md border-l-4 border-y border-r border-gray-200 bg-white p-3 sm:p-4 shadow-sm",
                             statusBgClass[b.status]
                           )}
                         >
-                          <div className="flex items-start justify-between gap-3">
-                            <div>
-                              <p className="text-sm font-semibold text-gray-900">
+                          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-3">
+                            <div className="min-w-0">
+                              <p className="text-sm font-semibold text-gray-900 truncate">
                                 {b.patientName}
                               </p>
                               <p className="mt-0.5 text-xs text-gray-500">
@@ -134,7 +136,9 @@ export default function BookingsPage() {
                                 {b.treatment}
                               </p>
                             </div>
-                            <BookingStatusBadge status={b.status} />
+                            <div className="shrink-0">
+                              <BookingStatusBadge status={b.status} />
+                            </div>
                           </div>
                         </div>
                       ))}

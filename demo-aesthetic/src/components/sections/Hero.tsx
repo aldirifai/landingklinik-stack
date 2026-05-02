@@ -6,7 +6,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative isolate flex min-h-[680px] flex-col justify-end overflow-hidden bg-navy-900 text-white"
+      className="relative isolate flex min-h-[560px] flex-col justify-end overflow-hidden bg-navy-900 text-white sm:min-h-[680px]"
     >
       <div
         aria-hidden="true"
@@ -21,20 +21,20 @@ export function Hero() {
         className="pointer-events-none absolute inset-0 -z-10 opacity-[0.06] [background-image:linear-gradient(rgba(255,255,255,0.6)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.6)_1px,transparent_1px)] [background-size:48px_48px]"
       />
 
-      <div className="container-page relative pt-40 pb-24 sm:pt-48 sm:pb-28 lg:pt-56 lg:pb-32">
+      <div className="container-page relative pt-28 pb-16 sm:pt-48 sm:pb-28 lg:pt-56 lg:pb-32">
         <span className="eyebrow text-gold-400">{heroCopy.eyebrow}</span>
-        <h1 className="mt-5 max-w-4xl font-display text-5xl font-light leading-[1.02] sm:text-6xl lg:text-[5rem]">
+        <h1 className="mt-4 max-w-4xl font-display text-4xl font-light leading-[1.08] sm:mt-5 sm:text-5xl md:text-6xl lg:text-[5rem] lg:leading-[1.02]">
           {clinic.tagline}
         </h1>
-        <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/75 sm:text-lg">
+        <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/75 sm:mt-6 sm:text-lg">
           {heroCopy.subheading}
         </p>
-        <div className="mt-10 flex flex-wrap gap-3">
-          <LinkButton href="#booking" size="lg" className="bg-gold-500 text-navy-900 hover:bg-gold-600">
+        <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap">
+          <LinkButton href="#booking" size="lg" className="w-full justify-center bg-gold-500 text-navy-900 hover:bg-gold-600 sm:w-auto">
             Konsultasi gratis
             <ArrowRight className="h-4 w-4" />
           </LinkButton>
-          <LinkButton href="#gallery" size="lg" variant="outline-light">
+          <LinkButton href="#gallery" size="lg" variant="outline-light" className="w-full justify-center sm:w-auto">
             Lihat hasil pasien
           </LinkButton>
         </div>

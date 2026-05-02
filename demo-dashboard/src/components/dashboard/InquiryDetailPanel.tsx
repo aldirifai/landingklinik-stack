@@ -42,7 +42,14 @@ export function InquiryDetailPanel({ inquiry, onClose, onUpdateStatus }: Props) 
   ];
 
   return (
-    <aside className="flex w-full max-w-md shrink-0 flex-col border-l border-gray-200 bg-white">
+    <>
+      {/* Mobile backdrop */}
+      <div
+        aria-hidden="true"
+        onClick={onClose}
+        className="fixed inset-0 z-40 bg-black/50 md:hidden"
+      />
+      <aside className="fixed inset-0 z-50 flex w-full flex-col bg-white md:static md:max-w-md md:shrink-0 md:border-l md:border-gray-200">
       <div className="flex h-16 items-center justify-between border-b border-gray-200 px-5">
         <h3 className="text-sm font-medium text-gray-900">Detail inquiry</h3>
         <button
@@ -144,7 +151,8 @@ export function InquiryDetailPanel({ inquiry, onClose, onUpdateStatus }: Props) 
           </Button>
         ))}
       </div>
-    </aside>
+      </aside>
+    </>
   );
 }
 

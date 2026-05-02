@@ -12,7 +12,7 @@ export function Tabs({ tabs }: { tabs: Tab[] }) {
     <div>
       <div
         role="tablist"
-        className="mb-6 flex flex-wrap gap-2"
+        className="mb-6 -mx-4 flex gap-2 overflow-x-auto px-4 pb-2 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 sm:pb-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
         {tabs.map((tab) => {
           const isActive = active === tab.id;
@@ -24,7 +24,7 @@ export function Tabs({ tabs }: { tabs: Tab[] }) {
               aria-selected={isActive}
               onClick={() => setActive(tab.id)}
               className={cn(
-                "rounded-full px-4 py-2 text-sm font-bold transition",
+                "shrink-0 rounded-full px-4 py-2 text-sm font-bold transition whitespace-nowrap",
                 isActive
                   ? "bg-coral-400 text-white shadow-coral"
                   : "bg-white text-slate-700 hover:bg-coral-50"

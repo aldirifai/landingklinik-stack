@@ -10,13 +10,13 @@ export function Location() {
       <div className="container-page">
         <div className="max-w-2xl">
           <span className="eyebrow">Lokasi</span>
-          <h2 className="mt-3 text-3xl font-bold text-ink sm:text-4xl">
+          <h2 className="mt-3 text-2xl font-bold text-ink sm:text-3xl lg:text-4xl">
             Mudah dijangkau dari Surabaya Timur
           </h2>
         </div>
 
-        <div className="mt-10 grid gap-8 lg:grid-cols-[1fr,1.5fr] lg:items-stretch">
-          <ul className="space-y-5 rounded-lg border border-slate-200 bg-white p-6">
+        <div className="mt-8 grid gap-6 sm:mt-10 sm:gap-8 lg:grid-cols-[1fr,1.5fr] lg:items-stretch">
+          <ul className="space-y-5 rounded-lg border border-slate-200 bg-white p-5 sm:p-6">
             <Item icon={<MapPin className="h-5 w-5" />} label="Alamat lengkap" value={clinic.address} />
             <Item
               icon={<Clock className="h-5 w-5" />}
@@ -34,7 +34,7 @@ export function Location() {
               src={mapsSrc}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              className="h-full min-h-[320px] w-full border-0"
+              className="block h-full min-h-[260px] w-full max-w-full border-0 sm:min-h-[320px]"
             />
           </div>
         </div>
@@ -46,10 +46,10 @@ export function Location() {
 function Item({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
   return (
     <li className="flex items-start gap-3">
-      <span className="mt-0.5 text-brand-600">{icon}</span>
-      <div>
+      <span className="mt-0.5 shrink-0 text-brand-600">{icon}</span>
+      <div className="min-w-0">
         <p className="text-xs uppercase tracking-wider text-slate-400">{label}</p>
-        <p className="whitespace-pre-line text-sm text-ink">{value}</p>
+        <p className="whitespace-pre-line break-words text-sm text-ink">{value}</p>
       </div>
     </li>
   );

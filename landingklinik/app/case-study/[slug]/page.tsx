@@ -54,7 +54,7 @@ export default function CaseStudyDetailPage({ params }: { params: Params }) {
   return (
     <>
       <article>
-        <section className="border-b border-border bg-secondary/40 py-14 sm:py-20">
+        <section className="border-b border-border bg-secondary/40 py-12 sm:py-16 lg:py-20">
           <Container>
             <Link
               href="/portfolio"
@@ -70,7 +70,7 @@ export default function CaseStudyDetailPage({ params }: { params: Params }) {
               </div>
             ) : null}
 
-            <div className="mt-5 grid grid-cols-1 gap-10 lg:grid-cols-[1.4fr_1fr] lg:items-center lg:gap-14">
+            <div className="mt-5 grid grid-cols-1 gap-8 sm:gap-10 lg:grid-cols-[1.4fr_1fr] lg:items-center lg:gap-14">
               <div>
                 <p className="text-sm font-medium uppercase tracking-wider text-primary">
                   {c.categoryLabel}
@@ -100,7 +100,7 @@ export default function CaseStudyDetailPage({ params }: { params: Params }) {
                   </div>
                 ) : null}
 
-                <dl className="mt-8 grid grid-cols-2 gap-y-4 sm:grid-cols-4">
+                <dl className="mt-8 grid grid-cols-2 gap-x-4 gap-y-4 sm:grid-cols-4">
                   <div>
                     <dt className="flex items-center gap-1.5 text-xs uppercase tracking-wider text-muted-foreground">
                       <MapPin className="h-3 w-3" /> Lokasi
@@ -146,9 +146,9 @@ export default function CaseStudyDetailPage({ params }: { params: Params }) {
           </Container>
         </section>
 
-        <section className="bg-background py-16 sm:py-20">
+        <section className="bg-background py-12 sm:py-16 lg:py-20">
           <Container size="md">
-            <div className="space-y-14">
+            <div className="space-y-10 sm:space-y-14">
               <div>
                 <h2 className="font-display text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
                   Profil klinik
@@ -234,12 +234,12 @@ export default function CaseStudyDetailPage({ params }: { params: Params }) {
                 <h2 className="font-display text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
                   Testimonial
                 </h2>
-                <figure className="mt-6 rounded-2xl border border-border bg-card p-7 sm:p-9">
+                <figure className="mt-6 rounded-2xl border border-border bg-card p-5 sm:p-7 lg:p-9">
                   <Quote
                     className="h-8 w-8 text-primary/40"
                     aria-hidden="true"
                   />
-                  <blockquote className="mt-3 text-balance text-lg leading-relaxed text-foreground sm:text-xl">
+                  <blockquote className="mt-3 text-balance text-base leading-relaxed text-foreground sm:text-lg lg:text-xl">
                     &ldquo;{c.testimonial.quote}&rdquo;
                   </blockquote>
                   <figcaption className="mt-6 flex items-center gap-4">
@@ -265,9 +265,9 @@ export default function CaseStudyDetailPage({ params }: { params: Params }) {
           </Container>
         </section>
 
-        <section className="border-t border-border bg-primary py-16 text-primary-foreground sm:py-20">
+        <section className="border-t border-border bg-primary py-12 text-primary-foreground sm:py-16 lg:py-20">
           <Container size="md">
-            <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex flex-col items-start gap-5 sm:gap-6 md:flex-row md:items-center md:justify-between">
               <div>
                 <h2 className="text-balance font-display text-2xl font-bold leading-tight tracking-tight sm:text-3xl">
                   Mau hasil serupa untuk klinik Anda?
@@ -276,7 +276,7 @@ export default function CaseStudyDetailPage({ params }: { params: Params }) {
                   Diskusi 15 menit, gratis. Saya kasih insight terlepas Anda lanjut atau tidak.
                 </p>
               </div>
-              <Button asChild variant="invert" size="lg" className="shrink-0">
+              <Button asChild variant="invert" size="lg" className="w-full md:w-auto md:shrink-0">
                 <a
                   href={waLink(waMessages.caseStudyFollowUp(c.name))}
                   target="_blank"

@@ -11,7 +11,7 @@ export function Pricing() {
   return (
     <section
       id="pricing"
-      className="border-b border-border bg-secondary/40 py-20 sm:py-24"
+      className="border-b border-border bg-secondary/40 py-14 sm:py-20 lg:py-24"
     >
       <Container>
         <SectionHeading
@@ -19,9 +19,9 @@ export function Pricing() {
           title={pricingContent.heading}
           subtitle={pricingContent.subheading}
         />
-        <div className="mx-auto mt-12 max-w-2xl">
+        <div className="mx-auto mt-10 max-w-2xl sm:mt-12">
           <Reveal>
-            <div className="relative overflow-hidden rounded-2xl border border-border bg-card p-8 shadow-sm sm:p-10">
+            <div className="relative overflow-hidden rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8 lg:p-10">
               <div
                 aria-hidden="true"
                 className="absolute -left-10 -top-10 h-40 w-40 rounded-full bg-primary/10 blur-2xl"
@@ -34,7 +34,7 @@ export function Pricing() {
                   {pricingContent.primary.title}
                 </h3>
                 <div className="mt-4 flex items-baseline gap-2">
-                  <p className="font-display text-4xl font-bold text-foreground">
+                  <p className="font-display text-3xl font-bold text-foreground sm:text-4xl">
                     {pricingContent.primary.price}
                   </p>
                 </div>
@@ -73,7 +73,7 @@ export function Pricing() {
           </Reveal>
 
           <Reveal delay={120}>
-            <div className="mt-5 rounded-xl border border-dashed border-border bg-card/60 p-6 sm:p-7">
+            <div className="mt-5 rounded-xl border border-dashed border-border bg-card/60 p-5 sm:p-7">
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div>
                   <h4 className="font-display text-base font-semibold text-foreground">
@@ -83,7 +83,7 @@ export function Pricing() {
                     {pricingContent.secondary.body}
                   </p>
                 </div>
-                <p className="shrink-0 font-display text-xl font-semibold text-foreground">
+                <p className="font-display text-xl font-semibold text-foreground sm:shrink-0">
                   {pricingContent.secondary.price}
                 </p>
               </div>

@@ -10,11 +10,11 @@ import { faqContent } from "@/content/main";
 
 export function FAQ() {
   return (
-    <section id="faq" className="border-b border-border bg-background py-20 sm:py-24">
+    <section id="faq" className="border-b border-border bg-background py-14 sm:py-20 lg:py-24">
       <Container size="md">
         <SectionHeading eyebrow="FAQ" title={faqContent.heading} />
 
-        <div className="mt-12">
+        <div className="mt-8 sm:mt-12">
           <Accordion type="single" collapsible className="w-full">
             {faqContent.items.map((item, idx) => (
               <AccordionItem key={idx} value={`item-${idx}`}>

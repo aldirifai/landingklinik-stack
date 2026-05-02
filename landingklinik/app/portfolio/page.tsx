@@ -15,13 +15,13 @@ export const metadata: Metadata = buildMetadata({
 export default function PortfolioPage() {
   return (
     <>
-      <section className="border-b border-border bg-secondary/40 py-20 sm:py-24">
+      <section className="border-b border-border bg-secondary/40 py-14 sm:py-20 lg:py-24">
         <Container>
           <div className="max-w-2xl">
             <p className="mb-3 text-sm font-medium uppercase tracking-wider text-primary">
               Portfolio
             </p>
-            <h1 className="font-display text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl">
+            <h1 className="font-display text-3xl font-bold leading-tight tracking-tight text-foreground sm:text-4xl lg:text-5xl">
               Case studies
             </h1>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
@@ -31,13 +31,13 @@ export default function PortfolioPage() {
         </Container>
       </section>
 
-      <section className="bg-background py-16 sm:py-20">
+      <section className="bg-background py-12 sm:py-16 lg:py-20">
         <Container>
           <div className="mb-6 rounded-lg border border-dashed border-border bg-card/60 px-4 py-3 text-sm text-muted-foreground">
             <strong className="font-semibold text-foreground">Catatan:</strong>{" "}
             Case study di bawah adalah demonstrasi format menggunakan klien hypothetical, sambil portfolio asli sedang dibangun.
           </div>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
             {caseStudies.map((c) => (
               <CaseStudyCard key={c.slug} caseStudy={c} />
             ))}

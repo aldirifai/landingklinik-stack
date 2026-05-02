@@ -11,13 +11,13 @@ export function About() {
   return (
     <section
       id="about"
-      className="border-b border-border bg-secondary/40 py-20 sm:py-24"
+      className="border-b border-border bg-secondary/40 py-14 sm:py-20 lg:py-24"
     >
       <Container>
         <SectionHeading eyebrow="About" title={aboutContent.heading} />
 
-        <div className="mx-auto mt-12 grid max-w-5xl grid-cols-1 items-start gap-10 md:grid-cols-[1fr_1.4fr] md:gap-12">
-          <Reveal>
+        <div className="mx-auto mt-10 grid max-w-5xl grid-cols-1 items-start gap-8 sm:mt-12 sm:gap-10 md:grid-cols-[1fr_1.4fr] md:gap-12">
+          <Reveal className="mx-auto w-full max-w-xs md:max-w-none">
             <PortraitPlaceholder
               initials="AL"
               alt={`Foto ${siteConfig.founder.name}, ${siteConfig.founder.role}`}
@@ -29,12 +29,12 @@ export function About() {
               {aboutContent.paragraphs.map((p, idx) => (
                 <p
                   key={idx}
-                  className="text-base leading-relaxed text-foreground/90"
+                  className="text-sm leading-relaxed text-foreground/90 sm:text-base"
                 >
                   {p}
                 </p>
               ))}
-              <div className="flex items-center gap-5 pt-2 text-sm text-muted-foreground">
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-2 pt-2 text-sm text-muted-foreground">
                 <a
                   href={siteConfig.social.github}
                   target="_blank"

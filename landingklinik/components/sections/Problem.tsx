@@ -5,13 +5,13 @@ import { problemContent } from "@/content/main";
 
 export function Problem() {
   return (
-    <section id="problem" className="border-b border-border bg-background py-20 sm:py-24">
+    <section id="problem" className="border-b border-border bg-background py-14 sm:py-20 lg:py-24">
       <Container>
         <SectionHeading
           eyebrow="Yang sering terjadi"
           title={problemContent.heading}
         />
-        <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-12 sm:gap-5 md:grid-cols-3">
           {problemContent.cards.map((card, idx) => {
             const Icon = card.icon;
             return (

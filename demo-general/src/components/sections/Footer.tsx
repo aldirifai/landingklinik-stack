@@ -5,8 +5,8 @@ import { clinic, demoDisclaimer, navLinks } from "@/lib/content";
 export function Footer() {
   return (
     <footer className="border-t border-slate-200 bg-white">
-      <div className="container-page py-12">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="container-page py-10 sm:py-12">
+        <div className="grid gap-8 sm:grid-cols-2 sm:gap-10 lg:grid-cols-3">
           <div>
             <div className="flex items-center gap-2">
               <span className="grid h-8 w-8 place-items-center rounded-lg bg-brand-500 text-white font-bold">
@@ -38,24 +38,24 @@ export function Footer() {
             </ul>
           </div>
 
-          <div>
+          <div className="min-w-0">
             <h4 className="text-sm font-semibold text-ink">Kontak & jam</h4>
             <ul className="mt-3 space-y-2 text-sm text-slate-600">
               <li className="flex items-start gap-2">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-slate-400" />
-                <span>{clinic.address}</span>
+                <span className="break-words">{clinic.address}</span>
               </li>
               <li className="flex items-start gap-2">
                 <Phone className="mt-0.5 h-4 w-4 shrink-0 text-slate-400" />
-                <span>{clinic.phone}</span>
+                <span className="break-words">{clinic.phone}</span>
               </li>
               <li className="flex items-start gap-2">
                 <MessageCircle className="mt-0.5 h-4 w-4 shrink-0 text-slate-400" />
-                <span>+{clinic.whatsapp}</span>
+                <span className="break-words">+{clinic.whatsapp}</span>
               </li>
               <li className="flex items-start gap-2">
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-slate-400" />
-                <span>{clinic.email}</span>
+                <span className="break-all">{clinic.email}</span>
               </li>
               <li className="flex items-start gap-2">
                 <Clock className="mt-0.5 h-4 w-4 shrink-0 text-slate-400" />

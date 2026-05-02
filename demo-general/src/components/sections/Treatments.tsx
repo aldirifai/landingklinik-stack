@@ -29,16 +29,16 @@ export function Treatments() {
       <div className="container-page">
         <div className="max-w-2xl">
           <span className="eyebrow">Layanan & Harga</span>
-          <h2 className="mt-3 text-3xl font-bold text-ink sm:text-4xl">
+          <h2 className="mt-3 text-2xl font-bold text-ink sm:text-3xl lg:text-4xl">
             Semua harga dijelaskan di awal sebelum tindakan
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-slate-600">
+          <p className="mt-4 text-sm leading-relaxed text-slate-600 sm:text-base">
             Tidak ada biaya tersembunyi. Estimasi harga dijelaskan di konsultasi awal,
             jadi Anda bisa memutuskan dengan tenang.
           </p>
         </div>
 
-        <div className="mt-10">
+        <div className="mt-8 sm:mt-10">
           <Tabs tabs={tabs} />
         </div>
 

@@ -16,19 +16,19 @@ export function Hero() {
         aria-hidden="true"
         className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_-10%,hsl(var(--primary)/0.08),transparent_55%)]"
       />
-      <Container className="grid grid-cols-1 items-center gap-12 py-20 lg:grid-cols-2 lg:gap-16 lg:py-28">
+      <Container className="grid grid-cols-1 items-center gap-10 py-14 sm:gap-12 sm:py-20 lg:grid-cols-2 lg:gap-16 lg:py-28">
         <div className="max-w-xl">
           <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-muted-foreground">
             <span className="h-1.5 w-1.5 rounded-full bg-accent" />
             Spesialis klinik gigi · Indonesia
           </p>
-          <h1 className="text-balance font-display text-4xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-5xl lg:text-[3.4rem]">
+          <h1 className="text-balance font-display text-3xl font-bold leading-[1.15] tracking-tight text-foreground sm:text-4xl md:text-5xl lg:text-[3.4rem] lg:leading-[1.1]">
             {heroContent.headline}
           </h1>
-          <p className="mt-5 text-balance text-base leading-relaxed text-muted-foreground sm:text-lg">
+          <p className="mt-4 text-balance text-base leading-relaxed text-muted-foreground sm:mt-5 sm:text-lg">
             {heroContent.subheadline}
           </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row">
             <Button asChild size="lg">
               <a
                 href={waLink(waMessages.defaultInquiry)}
@@ -46,28 +46,28 @@ export function Hero() {
               </a>
             </Button>
           </div>
-          <dl className="mt-10 grid max-w-md grid-cols-3 gap-6 border-t border-border pt-6">
+          <dl className="mt-8 grid max-w-md grid-cols-3 gap-3 border-t border-border pt-6 sm:mt-10 sm:gap-6">
             <div>
-              <dt className="text-xs uppercase tracking-wider text-muted-foreground">
+              <dt className="text-[11px] uppercase tracking-wider text-muted-foreground sm:text-xs">
                 Project
               </dt>
-              <dd className="mt-1 font-display text-lg font-semibold text-foreground">
+              <dd className="mt-1 font-display text-base font-semibold text-foreground sm:text-lg">
                 3 minggu
               </dd>
             </div>
             <div>
-              <dt className="text-xs uppercase tracking-wider text-muted-foreground">
+              <dt className="text-[11px] uppercase tracking-wider text-muted-foreground sm:text-xs">
                 Harga
               </dt>
-              <dd className="mt-1 font-display text-lg font-semibold text-foreground">
+              <dd className="mt-1 font-display text-base font-semibold text-foreground sm:text-lg">
                 Rp 5,5jt
               </dd>
             </div>
             <div>
-              <dt className="text-xs uppercase tracking-wider text-muted-foreground">
+              <dt className="text-[11px] uppercase tracking-wider text-muted-foreground sm:text-xs">
                 Garansi
               </dt>
-              <dd className="mt-1 font-display text-lg font-semibold text-foreground">
+              <dd className="mt-1 font-display text-base font-semibold text-foreground sm:text-lg">
                 30 hari
               </dd>
             </div>

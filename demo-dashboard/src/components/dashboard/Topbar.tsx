@@ -1,13 +1,28 @@
-import { Bell, Search } from "lucide-react";
+"use client";
+
+import { Bell, Menu, Search } from "lucide-react";
 import { userName, userRole } from "@/lib/data";
+import { useOpenSidebar } from "./SidebarContext";
 
 export function Topbar({ title }: { title: string }) {
-  return (
-    <header className="flex h-16 items-center justify-between border-b border-gray-200 bg-white px-6">
-      <h1 className="text-lg font-semibold text-gray-900">{title}</h1>
+  const openSidebar = useOpenSidebar();
 
-      <div className="flex items-center gap-4">
-        <div className="relative hidden sm:block">
+  return (
+    <header className="flex h-16 items-center justify-between border-b border-gray-200 bg-white px-4 sm:px-6 gap-3">
+      <div className="flex items-center gap-2 min-w-0">
+        <button
+          type="button"
+          onClick={openSidebar}
+          aria-label="Open sidebar"
+          className="grid h-9 w-9 shrink-0 place-items-center rounded-md border border-gray-200 text-gray-500 hover:bg-canvas md:hidden"
+        >
+          <Menu className="h-4 w-4" />
+        </button>
+        <h1 className="truncate text-base sm:text-lg font-semibold text-gray-900">{title}</h1>
+      </div>
+
+      <div className="flex items-center gap-2 sm:gap-4">
+        <div className="relative hidden md:block">
           <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
           <input
             type="search"
@@ -18,8 +33,16 @@ export function Topbar({ title }: { title: string }) {
 
         <button
           type="button"
+          aria-label="Search"
+          className="grid h-9 w-9 place-items-center rounded-md border border-gray-200 text-gray-500 hover:bg-canvas md:hidden"
+        >
+          <Search className="h-4 w-4" />
+        </button>
+
+        <button
+          type="button"
           aria-label="Notifications"
-          className="relative grid h-9 w-9 place-items-center rounded-md border border-gray-200 text-gray-500 hover:bg-canvas"
+          className="relative grid h-9 w-9 shrink-0 place-items-center rounded-md border border-gray-200 text-gray-500 hover:bg-canvas"
         >
           <Bell className="h-4 w-4" />
           <span className="absolute right-1.5 top-1.5 grid h-4 min-w-4 place-items-center rounded-full bg-red-500 px-1 text-[10px] font-bold text-white">
@@ -27,8 +50,8 @@ export function Topbar({ title }: { title: string }) {
           </span>
         </button>
 
-        <div className="flex items-center gap-3 rounded-md border border-gray-200 px-3 py-1.5">
-          <div className="grid h-7 w-7 place-items-center rounded-full bg-brand-500/10 text-xs font-bold text-brand-600">
+        <div className="flex items-center gap-3 rounded-md sm:border sm:border-gray-200 sm:px-3 sm:py-1.5">
+          <div className="grid h-8 w-8 sm:h-7 sm:w-7 place-items-center rounded-full bg-brand-500/10 text-xs font-bold text-brand-600">
             AP
           </div>
           <div className="hidden text-xs leading-tight sm:block">

@@ -18,10 +18,10 @@ export function Accordion({ items }: { items: Item[] }) {
             <button
               type="button"
               onClick={() => setOpenIndex(isOpen ? null : i)}
-              className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
+              className="flex w-full min-h-[3rem] items-center justify-between gap-4 px-4 py-4 text-left sm:px-5"
               aria-expanded={isOpen}
             >
-              <span className="font-medium text-ink">{item.q}</span>
+              <span className="text-sm font-medium text-ink sm:text-base">{item.q}</span>
               <ChevronDown
                 className={cn(
                   "h-5 w-5 shrink-0 text-slate-400 transition-transform",
@@ -36,7 +36,7 @@ export function Accordion({ items }: { items: Item[] }) {
               )}
             >
               <div className="overflow-hidden">
-                <p className="px-5 pb-5 text-sm leading-relaxed text-slate-600">
+                <p className="px-4 pb-5 text-sm leading-relaxed text-slate-600 sm:px-5">
                   {item.a}
                 </p>
               </div>

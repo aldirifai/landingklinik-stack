@@ -12,9 +12,9 @@ export const metadata: Metadata = buildMetadata({
 
 export default function PrivacyPage() {
   return (
-    <section className="bg-background py-16 sm:py-20">
+    <section className="bg-background py-12 sm:py-16 lg:py-20">
       <Container size="md">
-        <h1 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">
+        <h1 className="font-display text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl">
           Privacy Policy
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">

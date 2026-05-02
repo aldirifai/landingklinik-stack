@@ -47,8 +47,8 @@ export default function PatientsPage() {
     <>
       <Topbar title="Database Pasien" />
       <main className="flex-1 overflow-auto">
-        <div className="border-b border-gray-200 bg-white px-6 py-4">
-          <div className="flex flex-wrap items-center justify-between gap-4">
+        <div className="border-b border-gray-200 bg-white px-4 sm:px-6 py-4">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center sm:justify-between gap-3 sm:gap-4">
             <div>
               <h2 className="text-base font-semibold text-gray-900">
                 {filtered.length} pasien
@@ -57,17 +57,17 @@ export default function PatientsPage() {
                 Total {patients.length} pasien terdaftar
               </p>
             </div>
-            <div className="flex flex-wrap items-center gap-2">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-2">
               <Select
                 value={range}
                 onChange={(e) => setRange(e.target.value as RangeFilter)}
-                className="w-44"
+                className="w-full sm:w-44"
               >
                 {(Object.keys(filterLabels) as RangeFilter[]).map((k) => (
                   <option key={k} value={k}>{filterLabels[k]}</option>
                 ))}
               </Select>
-              <div className="relative w-72">
+              <div className="relative w-full sm:w-72">
                 <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
                 <input
                   type="search"
@@ -81,7 +81,61 @@ export default function PatientsPage() {
           </div>
         </div>
 
-        <div className="overflow-x-auto">
+        {/* Mobile card list */}
+        <div className="md:hidden divide-y divide-gray-100">
+          {filtered.length === 0 && (
+            <p className="px-4 py-16 text-center text-sm text-gray-500">
+              Tidak ada pasien yang cocok dengan filter.
+            </p>
+          )}
+          {filtered.map((p) => (
+            <div key={p.id} className="bg-white px-4 py-3">
+              <div className="flex items-start gap-3">
+                <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-brand-50 text-xs font-bold text-brand-600">
+                  {p.name.split(" ").slice(0, 2).map((s) => s[0]).join("")}
+                </div>
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="min-w-0">
+                      <p className="font-medium text-gray-900 truncate">{p.name}</p>
+                      <p className="text-xs text-gray-500 truncate">{p.phone}</p>
+                    </div>
+                    <button
+                      type="button"
+                      aria-label="More"
+                      className="rounded p-1 text-gray-400 hover:bg-gray-100 hover:text-gray-700"
+                    >
+                      <MoreHorizontal className="h-4 w-4" />
+                    </button>
+                  </div>
+                  <div className="mt-2 grid grid-cols-2 gap-2 text-xs">
+                    <div>
+                      <p className="text-gray-400">Last visit</p>
+                      <p className="font-medium text-gray-700">{formatDate(p.lastVisit)}</p>
+                    </div>
+                    <div>
+                      <p className="text-gray-400">Visits</p>
+                      <p className="font-medium text-gray-700 tabular-nums">{p.totalVisits}</p>
+                    </div>
+                    <div className="col-span-2">
+                      <p className="text-gray-400">Last treatment</p>
+                      <p className="font-medium text-gray-700 truncate">{p.lastTreatment}</p>
+                    </div>
+                    <div className="col-span-2">
+                      <p className="text-gray-400">Total spent</p>
+                      <p className="font-semibold text-gray-900 tabular-nums">
+                        {formatRupiahShort(p.totalSpent)}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop table */}
+        <div className="hidden md:block overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-gray-200 bg-canvas text-left text-xs uppercase tracking-wider text-gray-500">
@@ -137,7 +191,7 @@ export default function PatientsPage() {
           </table>
         </div>
 
-        <p className="px-6 py-4 text-xs text-gray-400">
+        <p className="px-4 sm:px-6 py-4 text-xs text-gray-400">
           Dashboard demo untuk landingklinik.id — semua data fiktif.
         </p>
       </main>
